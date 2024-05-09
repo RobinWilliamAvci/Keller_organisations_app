@@ -30,7 +30,7 @@
         <h1>Box: {{ box_name }} im Regal {{ regal_name }}</h1>
         <form action="{{ url_for('add_item', raum_name=raum_name, regal_name=regal_name, box_name=box_name) }}" method="post">
             <input type="text" name="item_name" placeholder="Name des Objekts" required>
-            <input type="text" name="item_beschreibung" placeholder="Beschreibung des Objekts" required>
+            <input type="text" name="item_description" placeholder="Beschreibung des Objekts"value="Beschreibung hinzufügen" required>
             <input type="number" name="item_anzahl" min="1" value="1" required>
             <button type="submit">Objekt hinzufügen</button>
         </form>
