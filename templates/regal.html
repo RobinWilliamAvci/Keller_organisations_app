@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Regal {{ regal_name }} im Raum {{ raum_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function openEditPopup(element, box_name) {
+            const raum_name = element.getAttribute('data-raum-name');
+            const regal_name = element.getAttribute('data-regal-name');
+            const newName = prompt("Bitte geben Sie den neuen Namen für die Box ein:", box_name);
+            if (newName !== null && newName !== box_name) {
+                fetch(`/edit_box/${raum_name}/${regal_name}/${box_name}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({new_name: newName})
+                }).then(response => {
+                    window.location.reload();
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Suchleiste -->
+    <div class="search-bar">
+        <form action="{{ url_for('suchen') }}" method="get">
+            <input type="text" name="suchtext" placeholder="Suchen...">
+            <button type="submit"><img src="{{ url_for('static', filename='lupe.png') }}" alt="Suche"></button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>Regal: {{ regal_name }} im Raum {{ raum_name }}</h1>
+        <form action="{{ url_for('add_box', raum_name=raum_name, regal_name=regal_name) }}" method="post">
+            <input type="text" name="box_name" placeholder="Neue Box">
+            <button type="submit">Box hinzufügen</button>
+        </form>
+        <ul class="box-liste">
+            {% for box_name in boxen %}
+            <li>
+                <!-- Formular zum Anzeigen der Box ersetzt den Link -->
+                <form action="{{ url_for('box', raum_name=raum_name, regal_name=regal_name, box_name=box_name) }}" method="get">
+                    <button type="submit" class="box-anzeigen">{{ box_name }}</button>
+                </form>
+                <button onclick="openEditPopup(this, '{{ box_name }}')" data-raum-name="{{ raum_name }}" data-regal-name="{{ regal_name }}">
+                    <img src="{{ url_for('static', filename='edit_icon.png') }}" alt="Editieren">
+                </button>
+                <form action="{{ url_for('delete_box', raum_name=raum_name, regal_name=regal_name, box_name=box_name) }}" method="post" style="display: inline;">
+                    <button type="submit">Löschen</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('raum', raum_name=raum_name) }}">Zurück zum Raum</a>
+    </div>
+</body>
+</html>

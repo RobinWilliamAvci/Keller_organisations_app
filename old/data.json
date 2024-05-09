@@ -1,0 +1,24 @@
+{
+    "R\u00e4ume": {
+        "Test": {
+            "Regale": {
+                "test": {
+                    "Boxen": {
+                        "1": {
+                            "Objekte": [
+                                {
+                                    "name": "test",
+                                    "beschreibung": "test",
+                                    "anzahl": 2
+                                }
+                            ]
+                        },
+                        "2": {
+                            "Objekte": []
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

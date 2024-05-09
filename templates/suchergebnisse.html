@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Suche</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="search-bar">
+        <form action="{{ url_for('suchen') }}" method="get">
+            <input type="text" name="suchtext" placeholder="Suchen...">
+            <button type="submit"><img src="{{ url_for('static', filename='lupe.png') }}" alt="Suche"></button>
+        </form>
+    </div>
+    <h1>Suchergebnisse</h1>
+    {% if ergebnisse %}
+    <ul>
+        {% for ergebnis in ergebnisse %}
+        <li>
+            <b>Raum:</b>  {{ ergebnis.raum }}<br><b>Regal:</b> {{ ergebnis.regal }}<br><b>Box:</b> {{ ergebnis.box }} <br>
+            <b>Objekt: </b>{{ ergebnis.objekt.name }}, <b>Anzahl: </b>{{ ergebnis.objekt.anzahl }},
+            <b>Beschreibung: </b>{{ ergebnis.objekt.beschreibung }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Keine Ergebnisse gefunden.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Zurück zur Hauptseite</a>
+</body>
+</html>

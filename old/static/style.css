@@ -1,0 +1,221 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #2c3e50; /* Dunkler Hintergrund */
+    color: #ecf0f1; /* Helle Schriftfarbe für Kontrast */
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #34495e; /* Etwas hellerer Hintergrund für Container */
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: #1abc9c; /* Sanftes, helles Grün */
+}
+
+a, .button-link {
+    background-color: #16a085; /* Weniger intensives Grün */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+a:hover, .button-link:hover {
+    background-color: #149174; /* Dunkleres Grün beim Hover */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    background-color: #3d566e; /* Dunklerer Hintergrund für Listenpunkte */
+    color: #ecf0f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+li form:first-of-type {
+    flex: 0 0 70%;
+    margin-right: 10px; /* sorgt für Abstand zwischen den Buttons */
+}
+
+li button:nth-of-type(1) {
+    flex: 0 0 10%;
+    background: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li form:last-of-type {
+    flex: 0 0 20%;
+    background-color: #e74c3c; /* Roter Farbton für das Löschen */
+}
+
+li form:last-of-type button {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+li:nth-child(odd) {
+    background-color: #415b76; /* Alternierende Farbe für Listenpunkte */
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"], button {
+    width: 100%;
+    background-color: #16a085;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #149174;
+}
+
+/* Weitere spezifische Anpassungen können hier hinzugefügt werden */
+button[name="update"] {
+    width: 49%;
+    background-color: #16a085;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[name="update"]:hover {
+    background-color: #149174;
+}
+
+button[name="delete"] {
+    width: 49%;
+    background-color: #a03f16;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[name="delete"]:hover {
+    background-color: #911c14;
+}
+
+.search-bar {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000; /* Stellt sicher, dass die Suchleiste immer sichtbar ist */
+}
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    margin-right: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    height: 20px;
+    width: 20px;
+}
+
+button img {
+    width: 20px; /* oder eine passende Größe */
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Stil für den Bearbeiten-Button */
+.edit-button {
+    background-color: #16a085; /* Spezifische grüne Farbe für den Bearbeiten-Button */
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover-Effekt für den Bearbeiten-Button */
+.edit-button:hover {
+    background-color: #149174; /* Etwas dunklere grüne Farbe beim Hover */
+}
+
+
+.regal-anzeigen {
+    background-color: #4CAF50; /* Grüne Farbe für den Anzeigen-Button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #45a049; /* Dunkleres Grün beim Hover */
+}
+
+.edit-button, .delete-button {
+    padding: 5px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #e74c3c; /* Roter Farbton für das Löschen */
+}
+
+.delete-button:hover {
+    background-color: #c0392b; /* Dunkleres Rot beim Hover */
+}
